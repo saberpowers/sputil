@@ -1,0 +1,11 @@
+Package: sputil
+Title: Scott Powers' Utility Functions for R
+Version: 0.0.0.9000
+Authors@R: 
+    person("Scott", "Powers", , "saberpowers@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0009-0001-7425-5941"))
+Description: This is a collection of functions that I've found useful for myself across projects.
+License: GPL (>= 3)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
