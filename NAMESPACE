@@ -2,5 +2,7 @@
 
 export(color)
 export(open_device)
+export(remove_axes)
+export(source_partial)
 export(theme_sleek)
 export(write_latex_table)

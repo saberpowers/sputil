@@ -5,13 +5,12 @@
 \title{Pick a color}
 \usage{
 color(
-  color = c("axis", "fg", "bg", "base", "base2", "red", "orange", "yellow", "green",
-    "blue"),
+  color = c("fg", "bg", "base", "base2", "red", "orange", "yellow", "green", "blue"),
   mode = c("dark", "light")
 )
 }
 \arguments{
-\item{color}{"axis", "fg", "bg", "base", "base2", "red", "orange", "yellow", "green" or "blue"}
+\item{color}{"fg", "bg", "base", "base2", "red", "orange", "yellow", "green" or "blue"}
 
 \item{mode}{"dark" or "light"}
 }
