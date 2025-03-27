@@ -19,10 +19,10 @@ open_device <- function(file,
   }
 
   if (file_type == ".pdf") {
-    pdf(filename, height = height, width = width)
+    pdf(file, height = height, width = width)
 
   } else if (file_type == ".png") {
-    png(filename, height = ppi_png * height, width = ppi_png * width, res = ppi_png)
+    png(file, height = ppi_png * height, width = ppi_png * width, res = ppi_png)
   }
 
   invisible()
