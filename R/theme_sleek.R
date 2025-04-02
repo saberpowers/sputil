@@ -19,6 +19,7 @@ theme_sleek <- function(mode = c("dark", "light")) {
       legend.background = ggplot2::element_rect(fill = NA),
       panel.background = ggplot2::element_rect(fill = color("bg", mode)),
       plot.background = ggplot2::element_rect(fill = color("bg", mode), color = color("bg", mode)),
-      strip.background = ggplot2::element_rect(fill = color("bg", mode), color = color("bg", mode))
+      strip.background = ggplot2::element_rect(fill = color("bg", mode), color = color("bg", mode)),
+      legend.position = "inside"
     )
 }
