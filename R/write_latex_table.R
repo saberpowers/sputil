@@ -6,17 +6,20 @@
 #' 
 #' @param table a dataframe to be converted to a L
 #' @param file a file name (presumably ending in .tex) to which to write the LaTeX table
+#' @param include.rownames If `TRUE` the rows names are printed. Default value is `FALSE`.
+#' @param ... additional arugments to `print.xtable`
 #' 
 #' @export
-write_latex_table <- function(table, file) {
+write_latex_table <- function(table, file, include.rownames = FALSE, ...) {
   text <- table |>
     xtable::xtable() |>
     print(
       hline.after = NULL,
-      include.rownames = FALSE,
+      include.rownames = include.rownames,
       include.colnames = FALSE,
       only.contents = TRUE,
-      sanitize.text.function = identity
+      sanitize.text.function = identity,
+      ...
     ) |>
     capture.output()
   text <- text[-length(text)]
