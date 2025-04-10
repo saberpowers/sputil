@@ -4,12 +4,20 @@
 \alias{write_latex_table}
 \title{Write LaTex table to file}
 \usage{
-write_latex_table(table, file, include.rownames = FALSE, ...)
+write_latex_table(
+  table,
+  file,
+  buffer_row = NULL,
+  include.rownames = FALSE,
+  ...
+)
 }
 \arguments{
 \item{table}{a dataframe to be converted to a L}
 
 \item{file}{a file name (presumably ending in .tex) to which to write the LaTeX table}
+
+\item{buffer_row}{row number before which to insert blank row}
 
 \item{include.rownames}{If \code{TRUE} the rows names are printed. Default value is \code{FALSE}.}
 
