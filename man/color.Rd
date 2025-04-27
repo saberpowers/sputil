@@ -5,7 +5,8 @@
 \title{Pick a color}
 \usage{
 color(
-  color = c("fg", "bg", "base", "base2", "red", "orange", "yellow", "green", "blue"),
+  color = c("fg", "bg", "base", "base2", "red", "orange", "yellow", "green", "cyan",
+    "blue", "violet", "magenta"),
   mode = c("dark", "light")
 )
 }
