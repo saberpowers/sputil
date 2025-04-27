@@ -9,7 +9,8 @@
 #' 
 #' @export
 color <- function(color = c(
-                    "fg", "bg", "base", "base2", "red", "orange", "yellow", "green", "blue"
+                    "fg", "bg", "base", "base2",
+                    "red", "orange", "yellow", "green", "cyan", "blue", "violet", "magenta"
                   ),
                   mode = c("dark", "light")) {
   color <- match.arg(color)
@@ -20,10 +21,13 @@ color <- function(color = c(
     bg = switch(mode, dark = "#002B37", light = "white"),
     base = switch(mode, dark = "#073642", light = "#eee8d5"),
     base2 = switch(mode, dark = "#eee8d5", light = "#073642"),
-    red = "#dc322f",
+    red = switch(mode, dark = "#dc322f", light = "darkred"),
     orange = switch(mode, dark = "#cb4b16", light = "darkorange"),
-    yellow = "#b58900",
-    green = "#859900",
-    blue = switch(mode, dark = "#268bd2", light = "dodgerblue")
+    yellow = switch(mode, dark = "#b58900", light = "darkgoldenrod"),
+    green = switch(mode, dark = "#859900", light = "darkgreen"),
+    cyan = switch(mode, dark = "#2aa198", light = "darkcyan"),
+    blue = switch(mode, dark = "#268bd2", light = "dodgerblue"),
+    violet = switch(mode, dark = "#6c71c4", light = "darkviolet"),
+    magenta = switch(mode, dark = "#d33682", light = "darkmagenta")
   )
 }
