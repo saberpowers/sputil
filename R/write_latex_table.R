@@ -7,11 +7,25 @@
 #' @param table a dataframe to be converted to a L
 #' @param file a file name (presumably ending in .tex) to which to write the LaTeX table
 #' @param buffer_row row number before which to insert blank row
-#' @param include.rownames If `TRUE` the rows names are printed. Default value is `FALSE`.
+#' @param hline.after a vector indicating the rows after which a horizontal line should appear.
+#'   Default value is NULL.
+#' @param include.rownames If `TRUE` the row names are printed. Default value is `FALSE`.
+#' @param include.colnames If `TRUE` the col names are printed. Default value is `FALSE`.
+#' @param only.contents If `TRUE`` only the rows of the table are printed. Default value is `TRUE`.
+#' @param sanitize.test.function A function taking a character vector and returning a sanitized one.
+#'   Default value is `identity`.
 #' @param ... additional arugments to `print.xtable`
-#' 
+ 
 #' @export
-write_latex_table <- function(table, file, buffer_row = NULL, include.rownames = FALSE, ...) {
+write_latex_table <- function(table,
+                              file,
+                              buffer_row = NULL,
+                              hline.after = NULL,
+                              include.rownames = FALSE,
+                              include.colnames = FALSE,
+                              only.contents = TRUE,
+                              sanitize.text.function = identity,
+                              ...) {
 
   if (!is.null(buffer_row)) {
     table_top <- dplyr::slice(table, 1:(buffer_row - 1))
@@ -26,11 +40,11 @@ write_latex_table <- function(table, file, buffer_row = NULL, include.rownames =
   text <- table |>
     xtable::xtable() |>
     print(
-      hline.after = NULL,
+      hline.after = hline.after,
       include.rownames = include.rownames,
-      include.colnames = FALSE,
-      only.contents = TRUE,
-      sanitize.text.function = identity,
+      include.colnames = include.colnames,
+      only.contents = only.contents,
+      sanitize.text.function = sanitize.text.function,
       ...
     ) |>
     capture.output()

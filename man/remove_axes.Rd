@@ -4,7 +4,7 @@
 \alias{remove_axes}
 \title{Remove all axes from a ggplot figure}
 \usage{
-remove_axes()
+remove_axes(remove_x = TRUE, remove_y = TRUE)
 }
 \description{
 Why isn't this a one-liner in ggplot2?

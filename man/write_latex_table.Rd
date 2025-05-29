@@ -8,7 +8,11 @@ write_latex_table(
   table,
   file,
   buffer_row = NULL,
+  hline.after = NULL,
   include.rownames = FALSE,
+  include.colnames = FALSE,
+  only.contents = TRUE,
+  sanitize.text.function = identity,
   ...
 )
 }
@@ -19,9 +23,19 @@ write_latex_table(
 
 \item{buffer_row}{row number before which to insert blank row}
 
-\item{include.rownames}{If \code{TRUE} the rows names are printed. Default value is \code{FALSE}.}
+\item{hline.after}{a vector indicating the rows after which a horizontal line should appear.
+Default value is NULL.}
+
+\item{include.rownames}{If \code{TRUE} the row names are printed. Default value is \code{FALSE}.}
+
+\item{include.colnames}{If \code{TRUE} the col names are printed. Default value is \code{FALSE}.}
+
+\item{only.contents}{If \verb{TRUE`` only the rows of the table are printed. Default value is }TRUE`.}
 
 \item{...}{additional arugments to \code{print.xtable}}
+
+\item{sanitize.test.function}{A function taking a character vector and returning a sanitized one.
+Default value is \code{identity}.}
 }
 \description{
 This function is necessary because for some reason xtable::print.xtable includes an end-line
