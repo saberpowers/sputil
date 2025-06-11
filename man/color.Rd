@@ -6,15 +6,15 @@
 \usage{
 color(
   color = c("fg", "bg", "base", "base2", "red", "orange", "yellow", "green", "cyan",
-    "blue", "violet", "magenta"),
+    "blue", "violet", "magenta", "gray"),
   mode = c("dark", "light")
 )
 }
 \arguments{
 \item{color}{Character. A color name to retrieve. Options include:
 \code{"fg"}, \code{"bg"}, \code{"base"}, \code{"base2"},
-\code{"red"}, \code{"orange"}, \code{"yellow"}, \code{"green"},
-\code{"cyan"}, \code{"blue"}, \code{"violet"}, \code{"magenta"}.}
+\code{"red"}, \code{"orange"}, \code{"yellow"}, \code{"green"}, \code{"cyan"}, \code{"blue"},
+\code{"violet"}, \code{"magenta"}, \code{"gray"}.}
 
 \item{mode}{Character. UI mode for which to retrieve the color. Either \code{"dark"} or \code{"light"}.}
 }
