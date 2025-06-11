@@ -1,12 +1,29 @@
-#' Pick a color
-#' 
-#' This function picks an appropriate version of a color based on model (dark/light)
-#' 
-#' @param color "fg", "bg", "base", "base2", "red", "orange", "yellow", "green" or "blue"
-#' @param mode "dark" or "light"
-#' 
-#' @return a character string representing a color
-#' 
+#' Retrieve a Named Color Based on UI Mode
+#'
+#' Returns a hexadecimal or named color string depending on the specified color category
+#' and display mode (light or dark). Useful for theming plots, tables, or UI elements.
+#'
+#' @param color Character. A color name to retrieve. Options include:
+#'   \code{"fg"}, \code{"bg"}, \code{"base"}, \code{"base2"},
+#'   \code{"red"}, \code{"orange"}, \code{"yellow"}, \code{"green"},
+#'   \code{"cyan"}, \code{"blue"}, \code{"violet"}, \code{"magenta"}.
+#'
+#' @param mode Character. UI mode for which to retrieve the color. Either \code{"dark"} or \code{"light"}.
+#'
+#' @return A character string representing a color in hexadecimal or named format.
+#'
+#' @details
+#' This function is inspired by the Solarized color palette and returns different shades
+#' depending on whether the requested mode is "dark" or "light". It can be used to maintain
+#' visual consistency in applications that support theming.
+#'
+#' If an unrecognized color is passed, it defaults to a gray fallback.
+#'
+#' @examples
+#' color("fg", "dark")       # returns "#93a1a1"
+#' color("red", "light")     # returns "darkred"
+#' color("cyan", "dark")     # returns "#2aa198"
+#'
 #' @export
 color <- function(color = c(
                     "fg", "bg", "base", "base2",
@@ -28,6 +45,7 @@ color <- function(color = c(
     cyan = switch(mode, dark = "#2aa198", light = "darkcyan"),
     blue = switch(mode, dark = "#268bd2", light = "dodgerblue"),
     violet = switch(mode, dark = "#6c71c4", light = "darkviolet"),
-    magenta = switch(mode, dark = "#d33682", light = "darkmagenta")
+    magenta = switch(mode, dark = "#d33682", light = "darkmagenta"),
+    gray = switch(mode, dark = "#93a1a1", light = "darkgray")
   )
 }

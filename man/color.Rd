@@ -2,7 +2,7 @@
 % Please edit documentation in R/color.R
 \name{color}
 \alias{color}
-\title{Pick a color}
+\title{Retrieve a Named Color Based on UI Mode}
 \usage{
 color(
   color = c("fg", "bg", "base", "base2", "red", "orange", "yellow", "green", "cyan",
@@ -11,13 +11,30 @@ color(
 )
 }
 \arguments{
-\item{color}{"fg", "bg", "base", "base2", "red", "orange", "yellow", "green" or "blue"}
+\item{color}{Character. A color name to retrieve. Options include:
+\code{"fg"}, \code{"bg"}, \code{"base"}, \code{"base2"},
+\code{"red"}, \code{"orange"}, \code{"yellow"}, \code{"green"},
+\code{"cyan"}, \code{"blue"}, \code{"violet"}, \code{"magenta"}.}
 
-\item{mode}{"dark" or "light"}
+\item{mode}{Character. UI mode for which to retrieve the color. Either \code{"dark"} or \code{"light"}.}
 }
 \value{
-a character string representing a color
+A character string representing a color in hexadecimal or named format.
 }
 \description{
-This function picks an appropriate version of a color based on model (dark/light)
+Returns a hexadecimal or named color string depending on the specified color category
+and display mode (light or dark). Useful for theming plots, tables, or UI elements.
+}
+\details{
+This function is inspired by the Solarized color palette and returns different shades
+depending on whether the requested mode is "dark" or "light". It can be used to maintain
+visual consistency in applications that support theming.
+
+If an unrecognized color is passed, it defaults to a gray fallback.
+}
+\examples{
+color("fg", "dark")       # returns "#93a1a1"
+color("red", "light")     # returns "darkred"
+color("cyan", "dark")     # returns "#2aa198"
+
 }
