@@ -7,11 +7,15 @@
 write_latex_table(
   table,
   file,
+  colnames = NULL,
+  prefix_rows = NULL,
   buffer_row = NULL,
-  hline.after = NULL,
+  align = NULL,
+  digits = NULL,
+  hline.after = 0,
   include.rownames = FALSE,
-  include.colnames = FALSE,
-  only.contents = TRUE,
+  include.colnames = TRUE,
+  include.contents = FALSE,
   sanitize.text.function = identity,
   ...
 )
@@ -21,18 +25,30 @@ write_latex_table(
 
 \item{file}{a file name (presumably ending in .tex) to which to write the LaTeX table}
 
+\item{colnames}{optional vector of print-friendly column names to overwrite \code{colnames(table)}}
+
+\item{prefix_rows}{optional vector of rows to include before the contents of the table,
+e.g. super-headers, one character string per row. End-of-line character (double backslash)
+will be appended to the end of each row.}
+
 \item{buffer_row}{row number before which to insert blank row}
 
+\item{align}{latex string of column aligments (defaults to all c)}
+
+\item{digits}{vector of integers, passed to \code{xtable::xtable}}
+
 \item{hline.after}{a vector indicating the rows after which a horizontal line should appear.
-Default value is NULL.}
+Default value is 0.}
 
 \item{include.rownames}{If \code{TRUE} the row names are printed. Default value is \code{FALSE}.}
 
 \item{include.colnames}{If \code{TRUE} the col names are printed. Default value is \code{FALSE}.}
 
-\item{only.contents}{If \verb{TRUE`` only the rows of the table are printed. Default value is }TRUE`.}
-
 \item{...}{additional arugments to \code{print.xtable}}
+
+\item{only.contents}{This argument must be \code{FALSE}, and the function will err if it is not.
+This is included as an argument only so that the function will stop gracefully if you try to
+set this argument to \code{TRUE}.}
 
 \item{sanitize.test.function}{A function taking a character vector and returning a sanitized one.
 Default value is \code{identity}.}
