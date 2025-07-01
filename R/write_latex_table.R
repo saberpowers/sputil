@@ -34,7 +34,7 @@ write_latex_table <- function(table,
                               hline.after = 0,
                               include.rownames = FALSE,
                               include.colnames = TRUE,
-                              include.contents = FALSE,
+                              only.contents = FALSE,
                               sanitize.text.function = identity,
                               ...) {
 
@@ -54,7 +54,7 @@ write_latex_table <- function(table,
     align <- paste(rep("c", times = ncol), collapse = "")
   }
 
-  if (!only.contents) {
+  if (only.contents) {
     stop("`only.contents` must be false")
   }
 
@@ -89,7 +89,7 @@ write_latex_table <- function(table,
 
   c(
     paste0("\\begin{tabular}{", align, "}"),
-    paste(prefix_rows, "\\\\"),
+    glue::glue("{prefix_rows}\\\\"),
     colnames_row,
     text[-length(text)],    # final line is always blank
     "\\end{tabular}"

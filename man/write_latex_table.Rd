@@ -15,7 +15,7 @@ write_latex_table(
   hline.after = 0,
   include.rownames = FALSE,
   include.colnames = TRUE,
-  include.contents = FALSE,
+  only.contents = FALSE,
   sanitize.text.function = identity,
   ...
 )
@@ -44,11 +44,11 @@ Default value is 0.}
 
 \item{include.colnames}{If \code{TRUE} the col names are printed. Default value is \code{FALSE}.}
 
-\item{...}{additional arugments to \code{print.xtable}}
-
 \item{only.contents}{This argument must be \code{FALSE}, and the function will err if it is not.
 This is included as an argument only so that the function will stop gracefully if you try to
 set this argument to \code{TRUE}.}
+
+\item{...}{additional arugments to \code{print.xtable}}
 
 \item{sanitize.test.function}{A function taking a character vector and returning a sanitized one.
 Default value is \code{identity}.}
