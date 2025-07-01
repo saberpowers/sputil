@@ -95,9 +95,4 @@ write_latex_table <- function(table,
     "\\end{tabular}"
   ) |>
     write(file = file)
-#  text <- text[-length(text)]
-#  text[length(text)] <- text[length(text)] |>
-#    stringr::str_replace(" $", "") |>
-#    stringr::str_replace("\\\\\\\\$", "")
-#  write(text, file = file)
 }
