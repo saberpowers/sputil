@@ -1,3 +1,6 @@
 ^sputil\.Rproj$
 ^\.Rproj\.user$
 ^LICENSE\.md$
+.github
+.gitignore
+NEWS.md
